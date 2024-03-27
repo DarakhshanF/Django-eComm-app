@@ -1,4 +1,24 @@
-<h1>Welcome!</h1>
+{% extends 'home/index.html' %}
+
+{% block title %}Sign In Page{% endblock %}
+
+{% block content %}
+
+<div class="home-container">
+    <div class="form login">
+      <h1>Welcome</h1>
+      {% if request.user.is_authenticated %}
+        <p>{{ request.user.email }}</p>
+        <a href="{% url 'users:logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'users:login' %}">Login</a>
+        <a href="{% url 'users:register' %}">Signup</a>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% comment %} <h1>Welcome!</h1>
 
 {% if request.user.is_authenticated %}
   <p>{{ request.user.email }}</p>
@@ -6,4 +26,6 @@
 {% else %}
   <a href="{% url 'users:login' %}">Login</a>
   <a href="{% url 'users:register' %}">Signup</a>
-{% endif %}
+{% endif %} {% endcomment %}
+
+{% endblock content %}
