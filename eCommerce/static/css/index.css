@@ -1,0 +1,232 @@
+/* Import font from Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #0b7fab;
+}
+
+.content {
+  flex: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: #076286;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.logo-container img {
+  height: 50px;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.navigation ul li {
+  padding: 0 20px;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  color: #ddd;
+}
+
+.header-icons a {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.header-icons a:hover {
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navigation ul li {
+    padding: 10px 0;
+  }
+
+  .navigation ul li a {
+    display: block;
+  }
+
+  .header-icons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-icons a {
+    padding: 5px 10px;
+  }
+}
+
+/* Menu toggle styles */
+.navigation .menu-toggle {
+  display: none; /* To be shown on mobile screens only */
+}
+
+.footer {
+  background-color: #076286;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ddd;
+}
+
+.social-media a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #ddd;
+}
+
+.footer {
+  background-color: #076286;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+.signin-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.signin-container .form{
+  padding: 2rem;
+}
+.signin-container .form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.signin-container .form input{
+   height: 50px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 0.3rem;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+}
+.signin-container .form input:focus{
+   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.signin-container .form a{
+  font-size: 16px;
+  color: #0b7fab;
+  text-decoration: none;
+}
+.signin-container .form a:hover{
+  text-decoration: underline;
+}
+.signin-container .form input.button{
+  color: #fff;
+  background: #0b7fab;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.signin-container .form input.button:hover{
+  background: #09a4e1;
+}
+.signin-container .signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signin-container .signup label{
+  color: #0b7fab;
+  cursor: pointer;
+}
+.signin-container .signup label:hover{
+  text-decoration: underline;
+}
+.signin-container .form .error {
+    color: red;
+    font-size: 0.9em;
+}
