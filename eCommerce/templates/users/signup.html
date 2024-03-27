@@ -1,9 +1,14 @@
 {% extends 'home/index.html' %}
 
+{%load static%}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
 {% block title %}Sign Up Page{% endblock %}
 
 {% block content %}
-  <div class="signup-container">
+  <div class="container">
     <div class="form registration">
       <header>Signup</header>
       <form method="POST" action="{% url 'users:register' %}">
