@@ -35,7 +35,7 @@ def user_login(request):
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
             if user:
-                login(request, user)    
+                login(request, user)
                 return redirect('users:home')
     else:
         print("This is not valid")
