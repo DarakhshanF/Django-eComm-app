@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
-from .models import Category
+from .models import Category, Product
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'is_active', 'created_at',
@@ -31,4 +31,14 @@ class CategoryAdmin(admin.ModelAdmin):
 
     subcategory_list.short_description = 'Subcategories'
 
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'available', 'created_at',
+                    'brand', 'stock_quantity')
+    list_filter = ('brand', 'stock_quantity', 'price',
+                   'available')
+    search_fields = ('name', 'brand')
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at',)
+
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)

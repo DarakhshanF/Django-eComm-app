@@ -29,3 +29,40 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Product(models.Model):
+    name = models.CharField(max_length=255,
+                            help_text='Enter the product name')
+    description = models.TextField(blank=True,
+                                   help_text='Provide a detailed description of the product')
+    price = models.DecimalField(max_digits=8,
+                                decimal_places=2, help_text='Enter the product price')
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      help_text='The date and time this category is created')
+    updated_at = models.DateTimeField(auto_now=True,
+                                      help_text='The date and time this category is updated')
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE,
+                                 help_text='Select the product category')
+    available = models.BooleanField(default=True,
+                                    help_text='Uncheck if the product is currently unavailable')
+    sku = models.CharField(max_length=50, unique=True,
+                           help_text='Enter the unique Stock-Keeping Unit (SKU) for the product')
+    brand = models.CharField(max_length=100, blank=True,
+                             help_text='Enter the brand name of the product')
+    image = models.ImageField(upload_to='product_images', blank=True, null=True,
+                              help_text='Upload an image for the product')
+    weight = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True,
+                                 help_text='Enter the product weight in kilograms (optional)')
+    dimensions = models.CharField(max_length=100, blank=True,
+                                  help_text='Enter the product dimensions (e.g., 10x20x30 cm)')
+    stock_quantity = models.PositiveIntegerField(default=0,
+                                                 help_text='Enter the current stock quantity of the product')
+    featured = models.BooleanField(default=False,
+                                   help_text='Check to mark this product as featured')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'products'
+        ordering = ['-created_at']
