@@ -44,7 +44,8 @@ body {
 
 .hamburger {
   display: none;
-  font-size: 26px;
+  z-index: 1001;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -93,18 +94,31 @@ body {
 
   .navigation {
     display: none; /* Hide nav menu */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    list-style: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
   }
 
   .navigation ul li {
     display: block;
     margin: 10px 0;
     padding: 10px 0;
-  }
-
-  .navigation ul {
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
   }
 
   .navigation ul li a {
