@@ -37,8 +37,10 @@ def user_login(request):
             if user:
                 login(request, user)
                 return redirect('users:home')
+            else:
+                form.add_error(None, 'Username or password is incorrect. Please try again')
+        return render(request, 'users/signin.html', {'form': form}) # display error messages
     else:
-        print("This is not valid")
         form = LoginForm()
     return render(request, 'users/signin.html', {'form': form})
 
