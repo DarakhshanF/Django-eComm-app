@@ -19,6 +19,9 @@ class Category(models.Model):
     image = models.ImageField(upload_to='category_images', blank=True,
                               null=True,
                               help_text='Optional image for the category')
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='children',
+                               blank=True, null=True,
+                               help_text='Select a parent category, if applicable')
 
     class Meta:
         verbose_name_plural = 'categories'
