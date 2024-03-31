@@ -85,3 +85,21 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'products'
         ordering = ['-created_at']
+
+class Review(models.Model):
+    author = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE,
+                             help_text='User submitting the review')
+    content = models.TextField(help_text='Provide your thoughts about the product here')
+    product = models.ForeignKey(Product, related_name='products', on_delete=models.CASCADE,
+                                help_text='Select the product for reviewing')
+    created_at = models.DateField(auto_now_add=True,
+                                  help_text='The date and time this review is created')
+    updated_at = models.DateField(auto_now=True,
+                                  help_text='The date and time this review is updated')
+
+    class Meta:
+        verbose_name_plural = 'reviews'
+        ordering = ['author']
+    
+    def __str__(self):
+        return f"{self.author.email}'s thoughts on {self.product.name}"

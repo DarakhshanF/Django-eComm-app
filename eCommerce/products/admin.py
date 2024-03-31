@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
-from .models import Category, Product, Tag
+from .models import Category, Product, Tag, Review
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'is_active', 'created_at',
@@ -47,6 +47,15 @@ class TagAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
     ordering = ('-created_at',)
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('author', 'product', 'content',
+                    'created_at')
+    list_filter = ('author', 'product')
+    search_fields = ('name', 'product')
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at', 'product')
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Review, ReviewAdmin)
