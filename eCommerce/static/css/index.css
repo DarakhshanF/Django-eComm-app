@@ -1,4 +1,4 @@
-/* Import font from Google Fonts - Poppins */
+/* Import font from Google Fonts - Raleway */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 *{
   margin: 0;
@@ -42,14 +42,22 @@ body {
   height: 50px;
 }
 
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
 .navigation ul {
   list-style: none;
   display: flex;
   padding: 0;
+  margin: 0;
 }
 
 .navigation ul li {
-  padding: 0 20px;
+  display: inline;
+  padding: 10px 20px;
 }
 
 .navigation ul li a {
@@ -79,14 +87,24 @@ body {
     align-items: center;
   }
 
+  .hamburger {
+    display: block;
+  }
+
+  .navigation {
+    display: none; /* Hide nav menu */
+  }
+
+  .navigation ul li {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+
   .navigation ul {
     flex-direction: column;
     width: 100%;
     text-align: center;
-  }
-
-  .navigation ul li {
-    padding: 10px 0;
   }
 
   .navigation ul li a {
@@ -102,11 +120,6 @@ body {
   .header-icons a {
     padding: 5px 10px;
   }
-}
-
-/* Menu toggle styles */
-.navigation .menu-toggle {
-  display: none; /* To be shown on mobile screens only */
 }
 
 .footer {
