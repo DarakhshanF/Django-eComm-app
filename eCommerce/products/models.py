@@ -66,3 +66,16 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'products'
         ordering = ['-created_at']
+
+class Tag(models.Model):
+    name = models.CharField(max_length=255,
+                            help_text='Enter the Tag name')
+    slug = models.SlugField(max_length=255, unique=True,
+                            help_text='A unique slug for the Tag (no spaces or special characters)')
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      help_text='The date and time this tag is created')
+    updated_at = models.DateTimeField(auto_now=True,
+                                      help_text='The date and time this tag is updated')
+    
+    def __str__(self):
+        return self.name
