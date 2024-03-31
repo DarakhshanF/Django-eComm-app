@@ -30,6 +30,23 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Tag(models.Model):
+    name = models.CharField(max_length=255,
+                            help_text='Enter the Tag name')
+    slug = models.SlugField(max_length=255, unique=True,
+                            help_text='A unique slug for the Tag (no spaces or special characters)')
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      help_text='The date and time this tag is created')
+    updated_at = models.DateTimeField(auto_now=True,
+                                      help_text='The date and time this tag is updated')
+    
+    class Meta:
+        verbose_name_plural = 'tags'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=255,
                             help_text='Enter the product name')
@@ -43,6 +60,8 @@ class Product(models.Model):
                                       help_text='The date and time this category is updated')
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE,
                                  help_text='Select the product category')
+    tags = models.ManyToManyField(Tag, related_name='products', blank=True,
+                                  help_text='Select the relevant tags for this product')
     available = models.BooleanField(default=True,
                                     help_text='Uncheck if the product is currently unavailable')
     sku = models.CharField(max_length=50, unique=True,
@@ -66,16 +85,3 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'products'
         ordering = ['-created_at']
-
-class Tag(models.Model):
-    name = models.CharField(max_length=255,
-                            help_text='Enter the Tag name')
-    slug = models.SlugField(max_length=255, unique=True,
-                            help_text='A unique slug for the Tag (no spaces or special characters)')
-    created_at = models.DateTimeField(auto_now_add=True,
-                                      help_text='The date and time this tag is created')
-    updated_at = models.DateTimeField(auto_now=True,
-                                      help_text='The date and time this tag is updated')
-    
-    def __str__(self):
-        return self.name
