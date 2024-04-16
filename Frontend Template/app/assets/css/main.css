@@ -1,3 +1,32 @@
+/***
+ Theme Name: Nest
+ Description: Grocery, Super Market, eCommerce HTML Template
+ Version: 1.0
+ License: GNU General Public License v2 or later
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+==============================
+TABLE CONTENT
+ Import Google Fonts
+ Include Third Party CSS Library
+ GENERAL
+ HEADER
+ Offcanvas Sidebar
+ Search form
+ Main header
+ Mega menu
+ Header layouts
+ Page layouts
+ Pagination
+ Breadcrumb
+ CATEGORY PAGES
+ SINGLE POST
+ Author box
+ comment
+ Post share social
+ WP STYPE
+ Custom amine
+***/
+
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 /*import vendors*/
 
@@ -476,3 +505,61 @@ strong {
     align-items: flex-end;
 }
 
+.section-title h3 {
+    font-weight: 700;
+    font-size: 32px;
+    margin-right: 30px;
+}
+
+.section-title.style-1 {
+    position: relative;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 20px;
+    font-size: 24px;
+}
+
+.section-title.style-1::after {
+    content: "";
+    width: 80px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #BCE3C9;
+}
+
+.section-title span {
+    color: #219ebc;
+}
+
+h5.widget-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.title.style-3 {
+    background-image: url(../imgs/theme/wave.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+}
+
+.text-body {
+    color: #7E7E7E !important;
+}
+
+.font-xs {
+    font-size: 13px;
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.font-md {
+    font-size: 16px;
+}
+
+.font-lg {
+    font-size: 17px;
+}
