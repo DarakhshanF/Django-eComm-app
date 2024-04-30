@@ -8,7 +8,7 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-    return render(request, 'users/index.html')
+    return render(request, 'users/homepage.html')
 
 class registration(View):
     def get(self, request):
@@ -39,10 +39,10 @@ def user_login(request):
                 return redirect('users:home')
             else:
                 form.add_error(None, 'Username or password is incorrect. Please try again')
-        return render(request, 'users/signin.html', {'form': form}) # display error messages
+        return render(request, 'users/login.html', {'form': form}) # display error messages
     else:
         form = LoginForm()
-    return render(request, 'users/signin.html', {'form': form})
+    return render(request, 'users/login.html', {'form': form})
 
 def user_logout(request):
     logout(request)

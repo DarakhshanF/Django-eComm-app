@@ -124,7 +124,7 @@ USE_TZ = True
 STATIC_URL = "/static/" # URL prefix or endpoint to access the files on web
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") # file system path or directory where files are stored
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR / "static"),
+    os.path.join(BASE_DIR, "static"),
     ]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
