@@ -11,7 +11,13 @@ from django.contrib import messages
 @login_required
 def cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user, defaults={'created_at': datetime.now()})
-    return render(request, 'cart/usercart.html', {'cart': cart})
+    items = cart.items.all()
+    total = sum(item.quantity * item.unit_price for item in items)
+    context = {
+        'cart': cart,
+        'total': total
+    }
+    return render(request, 'cart/usercart.html', context)
     # return render(request, 'cart/usercart.html')
 
 @login_required
