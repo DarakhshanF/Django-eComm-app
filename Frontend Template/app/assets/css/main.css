@@ -1499,3 +1499,65 @@ table .product-thumbnail img {
     color: #FDC040;
 }
 
+.product-cart-wrap .product-action-1 button:hover:after,
+.product-cart-wrap .product-action-1 a.action-btn:hover:after {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateX(-50%) translateY(-8px);
+    transform: translateX(-50%) translateY(-8px);
+}
+
+.product-cart-wrap .product-action-1 button:hover:before,
+.product-cart-wrap .product-action-1 a.action-btn:hover:before {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+}
+
+.product-cart-wrap .product-action-1 button:hover i,
+.product-cart-wrap .product-action-1 a.action-btn:hover i {
+    color: #FDC040;
+}
+
+.product-cart-wrap .product-badges {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.product-cart-wrap .product-badges.product-badges-mrg {
+    margin: 0 0 10px;
+}
+
+.product-cart-wrap .product-badges.product-badges-position {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 9;
+}
+
+.product-cart-wrap .product-badges span {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 15px 0 20px 0;
+    color: #fff;
+    padding: 9px 20px 10px 20px;
+}
+
+.product-cart-wrap .product-badges span:last-child {
+    margin-right: 0px;
+}
+
+.product-cart-wrap .product-badges span.hot {
+    background-color: #f74b81;
+}
+
+.product-cart-wrap .product-badges span.new {
+    background-color: #219ebc;
+}
+
+.product-cart-wrap .product-badges span.sale {
+    background-color: #67bcee;
+}
