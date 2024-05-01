@@ -72,7 +72,6 @@
                                             </div>
                                             <div class="shopping-cart-button">
                                                 <a href="{% url 'cart:cart_detail' %}" class="outline">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -84,8 +83,12 @@
                                     <a href="useraccount.html"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
-                                            <li><a href="useraccount.html"><i class="fi fi-rs-user mr-10"></i>My Account</a></li>
-                                            <li><a href="{% url 'users:login' %}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
+                                            {% if not user.is_authenticated %}
+                                                <li><a href="{% url 'users:login' %}">Login</a></li>
+                                                <li><a href="{% url 'users:register' %}">Sign Up</a></li>
+                                            {% else %}
+                                                <li><a href="{% url 'users:logout' %}"><i class="fi fi-rs-sign-out mr-10"></i>Logout</a></li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </div>

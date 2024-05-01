@@ -138,8 +138,6 @@
                                 <img src="assets/imgs/theme/icons/payment-zapper.svg" alt="">
                             </div>
                         </div>
-                        {% comment %} <a href="{% url 'cart:confirmation' }" class="btn mb-20 w-100">Confirm Order
-                        <i class="fi-rs-sign-out ml-15"></i></a> {% endcomment %}
                         <form method="post" action="{% url 'cart:confirm_order' %}">
                             {% csrf_token %}
                             <button type="submit">Confirm Order</button>
