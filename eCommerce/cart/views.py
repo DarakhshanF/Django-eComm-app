@@ -73,7 +73,7 @@ def confirm_order(request):
             'order': order,
         }
         
-        # cart.items.all().delete()
+        cart.items.all().delete()
         return render(request, 'cart/order-confirmation.html', context)
 
 

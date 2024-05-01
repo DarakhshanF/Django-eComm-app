@@ -174,7 +174,7 @@
                                 <p class="font-lg text-heading"> Helping you find your solar solutions</p>
                             </div>
                             <ul class="contact-infor">
-                                <li><img src="{% static 'assets/imgs/theme/icons/location-icon.svg' %}" alt="" /><strong>Address: </strong> <span>University of Surrey, Guildford GU27 JKU</span></li>
+                                <li><img src="{% static 'assets/imgs/theme/icons/location-icon.svg' %}" alt="" /><strong>Address: </strong> <span>University of Surrey, Guildford GU2 7XH</span></li>
                                 <li><img src="{% static 'assets/imgs/theme/icons/call-us-icon.svg' %}" alt="" /><strong>Call Us:</strong><span>+44 078 456789</span></li>
                                 <li><img src="{% static 'assets/imgs/theme/icons/email-icon.svg' %}" alt="" /><strong>Email:</strong><span> solarsurrey@surrey.ac.uk</span></li>                               
                             </ul>
@@ -183,28 +183,25 @@
                     <div class="footer-link-widget col">
                         <h4 class="widget-title">Company</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{% url 'home:about-us' %}">About Us</a></li>
+                            <li><a href="{% url 'home:contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="footer-link-widget col">
                         <h4 class="widget-title">Account</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">View Cart</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-link-widget col">
-                        <h4 class="widget-title">Categories</h4>
-                        <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="#">Solar Panels</a></li>
-                            <li><a href="#">Solar Products</a></li>
-                            <li><a href="#">Solar Batteries</a></li>
-                            <li><a href="#">Others</a></li>
+                            {% if not user.is_authenticated %}
+                                <li><a href="useraccount.html">My Account</a></li>
+                                <li><a href="{% url 'users:login' %}">Login</a></li>
+                                <li><a href="{% url 'users:register' %}">Sign Up</a></li>
+                            {% else %}
+                                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                                <li><a href="{% url 'cart:cart_detail' %}">View Cart</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="footer-link-widget widget-install-app col">
-                        <p class="mb-20">Secured Payment Gateways</p>
+                        <p class="mb-20">Secured Payment Gateways <strong>(Coming Soon). Accepting Cash on Delivery for now</strong>.</p>
                         <img class="wow fadeIn animated" src="{% static 'assets/imgs/theme/payment-method.png' %}" alt="" />
                     </div>
                 </div>
@@ -227,9 +224,9 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                     <div class="mobile-social-icon">
                         <h6>Follow Us</h6>
-                        <a href="#"><img src="{% static 'assets/imgs/theme/icons/icon-facebook-white.svg' %}" alt="" /></a>
-                        <a href="#"><img src="{% static 'assets/imgs/theme/icons/icon-instagram-white.svg' %}" alt="" /></a>
-                        <a href="#"><img src="{% static 'assets/imgs/theme/icons/icon-youtube-white.svg' %}" alt="" /></a>
+                        <a href="https://www.facebook.com" target="_blank"><img src="{% static 'assets/imgs/theme/icons/icon-facebook-white.svg' %}" alt="" /></a>
+                        <a href="https://www.instagram.com" target="_blank"><img src="{% static 'assets/imgs/theme/icons/icon-instagram-white.svg' %}" alt="" /></a>
+                        <a href="https://www.youtube.com" target="_blank"><img src="{% static 'assets/imgs/theme/icons/icon-youtube-white.svg' %}" alt="" /></a>
                     </div>
                 </div>
             </div>
