@@ -113,7 +113,6 @@
                                             <li><a href="{% url 'home:about-us' %}">About Us</a></li>
                                             <li><a href="{% url 'home:contact' %}">Contact</a></li>
                                             {% if not user.is_authenticated %}
-                                                <li><a href="useraccount.html">My Account</a></li>
                                                 <li><a href="{% url 'users:login' %}">Login</a></li>
                                                 <li><a href="{% url 'users:register' %}">Sign Up</a></li>
                                             {% else %}
@@ -187,7 +186,6 @@
                         <h4 class="widget-title">Account</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
                             {% if not user.is_authenticated %}
-                                <li><a href="useraccount.html">My Account</a></li>
                                 <li><a href="{% url 'users:login' %}">Login</a></li>
                                 <li><a href="{% url 'users:register' %}">Sign Up</a></li>
                             {% else %}
