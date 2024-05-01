@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from products.models import Product
+import uuid
 
 User = get_user_model()
 
@@ -38,7 +39,10 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
     def generate_order_number(self):
-        return f"SS-{self.pk}-{int(self.created_at.timestamp())}"
+        return f"SS-OrderID-{int(self.created_at.timestamp())}"
+    
+    def get_total_cost(self):
+        return sum(item.quantity * item.price for item in self.items.all())
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)

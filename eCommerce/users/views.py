@@ -41,7 +41,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('users:home products')
+                return redirect('users:home')
             else:
                 form.add_error(None, 'Username or password is incorrect. Please try again')
         return render(request, 'users/login.html', {'form': form}) # display error messages
