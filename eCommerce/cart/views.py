@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Cart, CartItem, Product
+from .models import Cart, CartItem, Order, OrderItem
+from products.models import Product
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.views.generic.edit import FormView
@@ -52,3 +53,7 @@ def change_item_quantity(request, item_id):
             cart_item.delete()
         return redirect('cart:cart_detail')
     return redirect('cart:cart_detail')
+
+@login_required
+def order_confirmation(request, order_id):
+    pass

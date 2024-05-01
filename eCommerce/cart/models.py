@@ -24,3 +24,27 @@ class CartItem(models.Model):
     
     def __str__(self):
         return f"Cart Item: {self.product.name}"
+
+# Order Management
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    order_number = models.CharField(max_length=30, unique=True, editable=False)
+
+    # creating a unique order number
+    def save(self, *args, **kwargs):
+        if not self.order_number:
+            self.order_number = self.generate_order_number()
+        super().save(*args, **kwargs)
+
+    def generate_order_number(self):
+        return f"SS-{self.pk}-{int(self.created_at.timestamp())}"
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    quantity = models.PositiveIntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def subtotal(self):
+        return self.quantity * self.price
