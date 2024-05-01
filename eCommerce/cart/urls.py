@@ -11,6 +11,4 @@ urlpatterns = [
 
     path('confirm-order/', views.confirm_order, name='confirm_order'),
     path('order-confirmation/<int:order_id>/', views.order_confirmation, name='order_confirmation'),
-    # path('checkout/', views.change_item_quantity, name='checkout'),
-    # path('order-confirmation/<int:order_id>/', views.confirm_order, name='confirm_order'),
 ]
