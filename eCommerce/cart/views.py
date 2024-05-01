@@ -18,12 +18,10 @@ def cart(request):
         'total': total
     }
     return render(request, 'cart/usercart.html', context)
-    # return render(request, 'cart/usercart.html')
 
 @login_required
 def cart_detail(request):
     cart, created = Cart.objects.get_or_create(user=request.user, defaults={'created_at': datetime.now()})
-    # return render(request, 'cart/cart_detail.html', {'cart': cart})
     return render(request, 'cart/usercart.html', {'cart': cart})
 
 @login_required
@@ -42,16 +40,6 @@ def remove_from_cart(request, item_id):
     cart_item.delete()
     return redirect('cart:cart_detail')
 
-# @login_required
-# def change_item_quantity(request, item_id, quantity):
-#     cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
-#     if quantity > 0:
-#         cart_item.quantity = quantity
-#         cart_item.save()
-#     else:
-#         cart_item.delete()
-#     return redirect('cart:cart_detail')
-
 @login_required
 def change_item_quantity(request, item_id):
     if request.method == 'POST':
@@ -63,4 +51,4 @@ def change_item_quantity(request, item_id):
         else:
             cart_item.delete()
         return redirect('cart:cart_detail')
-    return redirect('cart:cart_detail')  # Redirect if not a POST request or some other error occurs
+    return redirect('cart:cart_detail')
