@@ -641,3 +641,47 @@ input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     opacity: 1;
 }
+
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    opacity: 1;
+}
+
+input {
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    height: 64px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding-left: 20px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input:focus {
+    background: transparent;
+    border: 1px solid #BCE3C9;
+}
+
+select {
+    width: 100%;
+    background: transparent;
+    border: 0px solid #ececec;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 16px;
+    color: #7E7E7E;
+}
+
+option {
+    background: #fff;
+    border: 0px solid #626262;
+    padding-left: 10px;
+    font-size: 16px;
+}
