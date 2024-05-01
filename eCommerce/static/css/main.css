@@ -1,0 +1,25 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.brand-logo img {
+    width: 100px;
+    /* Set width to 100px */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Navbar styles */
+/* ... (see the provided CSS in the original response) ... */
+
+/* Product card styles */
+.product-card {
+    /* Customize as needed */
+}
+
+/* Footer styles */
+/* ... (see the provided CSS in the original response) ... */
