@@ -40,34 +40,31 @@
                             <tbody>
                                 {% if cart.items.all %}
                                     <ul>
-                                    {% for item in cart.items.all %}
-                                        <li>
-                                            {{ item.product.name }} - 
-                                            <tr class="pt-30">
-                                                <td class="custome-checkbox pl-30">
-                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
-                                                    <label class="form-check-label" for="exampleCheckbox1"></label>
-                                                </td>
-                                                <td class="image product-thumbnail pt-40"><img src="{{ item.product.image.url }}" alt="#"></td>
-                                                <td class="product-des product-name">
-                                                    <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">{{ item.product.name }}</a></h6>
-                                                </td>
-                                                <td class="price" data-title="Price">
-                                                    <h4 class="text-body"> £ {{ item.unit_price }} </h4>
-                                                </td>
-                                                <td class="text-center detail-info" data-title="Stock">
-                                                    <form action="{% url 'cart:change_item_quantity' item.id %}" method="post">
-                                                        {% csrf_token %}
-                                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 50px;">
-                                                        <button type="submit">Update</button>
-                                                    </form>
-                                                </td>
-                                                <td class="price" data-title="Price">
-                                                    <h4 class="text-brand">£ {{item.subtotal}} </h4>
-                                                </td>
-                                                <td class="action text-center" data-title="Remove"><a href="{% url 'cart:remove_from_cart' item.id %}" class="text-body"><i class="fi-rs-trash"></i></a></td>
-                                            </tr>
-                                        </li>
+                                    {% for item in cart.items.all %} 
+                                        <tr class="pt-30">
+                                            <td class="custome-checkbox pl-30">
+                                                <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
+                                                <label class="form-check-label" for="exampleCheckbox1"></label>
+                                            </td>
+                                            <td class="image product-thumbnail pt-40"><img src="{{ item.product.image.url }}" alt="#"></td>
+                                            <td class="product-des product-name">
+                                                <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">{{ item.product.name }}</a></h6>
+                                            </td>
+                                            <td class="price" data-title="Price">
+                                                <h4 class="text-body"> £ {{ item.unit_price }} </h4>
+                                            </td>
+                                            <td class="text-center detail-info" data-title="Stock">
+                                                <form action="{% url 'cart:change_item_quantity' item.id %}" method="post">
+                                                    {% csrf_token %}
+                                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 50px;">
+                                                    <button type="submit">Update</button>
+                                                </form>
+                                            </td>
+                                            <td class="price" data-title="Price">
+                                                <h4 class="text-brand">£ {{item.subtotal}} </h4>
+                                            </td>
+                                            <td class="action text-center" data-title="Remove"><a href="{% url 'cart:remove_from_cart' item.id %}" class="text-body"><i class="fi-rs-trash"></i></a></td>
+                                        </tr>
                                     {% endfor %}
                                     </ul>
                                 {% else %}
