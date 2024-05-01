@@ -1,0 +1,30 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header-container {
+    background-color: #FB8500;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navigation .cart-icon {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.navigation .cart-icon svg {
+    stroke: white; /* Change the color of the cart icon */
+    vertical-align: middle;
+}

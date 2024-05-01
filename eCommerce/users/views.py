@@ -5,10 +5,15 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.contrib import messages
+from products.models import Product
 
 # Create your views here.
 def index(request):
-    return render(request, 'users/homepage.html')
+    products = Product.objects.all()
+    context = {
+        "products": products
+    }
+    return render(request, 'users/homepage.html', context)
 
 class registration(View):
     def get(self, request):
@@ -36,7 +41,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('users:home')
+                return redirect('users:home products')
             else:
                 form.add_error(None, 'Username or password is incorrect. Please try again')
         return render(request, 'users/login.html', {'form': form}) # display error messages

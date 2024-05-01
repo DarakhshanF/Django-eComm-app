@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+import os
 
 User = get_user_model()
 
@@ -69,7 +70,8 @@ class Product(models.Model):
     brand = models.CharField(max_length=100, blank=True,
                              help_text='Enter the brand name of the product')
     image = models.ImageField(upload_to='product_images', blank=True, null=True,
-                              help_text='Upload an image for the product')
+                              help_text='Upload an image for the product',
+                              default=os.path.join('static/assets/imgs/shop', 'product-solar-1-2.png'))
     weight = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True,
                                  help_text='Enter the product weight in kilograms (optional)')
     dimensions = models.CharField(max_length=100, blank=True,
