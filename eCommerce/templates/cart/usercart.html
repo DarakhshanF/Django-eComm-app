@@ -57,13 +57,6 @@
                                                     <h4 class="text-body"> £ {{ item.unit_price }} </h4>
                                                 </td>
                                                 <td class="text-center detail-info" data-title="Stock">
-                                                    {% comment %} <div class="detail-extralink mr-15">
-                                                        <div class="detail-qty border radius">
-                                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                            <span class="qty-val">{{ item.quantity }}</span>
-                                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                                        </div>
-                                                    </div> {% endcomment %}
                                                     <form action="{% url 'cart:change_item_quantity' item.id %}" method="post">
                                                         {% csrf_token %}
                                                         <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 50px;">
