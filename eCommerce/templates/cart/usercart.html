@@ -1,0 +1,150 @@
+{% extends 'home/index.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main">
+        <div class="page-header breadcrumb-wrap">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <span></span> Cart
+                </div>
+            </div>
+        </div>
+        <div class="container mb-80 mt-50">
+            <div class="row">
+                <div class="col-lg-8 mb-40">
+                    <h1 class="heading-2 mb-10">Your Cart</h1>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-body">You have a total of <span class="text-brand">{{ cart.items.all.count }}</span> products in your cart</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="table-responsive shopping-summery">
+                        <table class="table table-wishlist">
+                            <thead>
+                                <tr class="main-heading">
+                                    <th class="custome-checkbox start pl-30">
+                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="">
+                                        <label class="form-check-label" for="exampleCheckbox11"></label>
+                                    </th>
+                                    <th scope="col" colspan="2">Product</th>
+                                    <th scope="col">Unit Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col" class="end">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if cart.items.all %}
+                                    <ul>
+                                    {% for item in cart.items.all %} 
+                                        <tr class="pt-30">
+                                            <td class="custome-checkbox pl-30">
+                                                <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
+                                                <label class="form-check-label" for="exampleCheckbox1"></label>
+                                            </td>
+                                            <td class="image product-thumbnail pt-40"><img src="{{ item.product.image.url }}" alt="#"></td>
+                                            <td class="product-des product-name">
+                                                <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">{{ item.product.name }}</a></h6>
+                                            </td>
+                                            <td class="price" data-title="Price">
+                                                <h4 class="text-body"> £ {{ item.unit_price }} </h4>
+                                            </td>
+                                            <td class="text-center detail-info" data-title="Stock">
+                                                <form action="{% url 'cart:change_item_quantity' item.id %}" method="post">
+                                                    {% csrf_token %}
+                                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 50px;">
+                                                    <button type="submit">Update</button>
+                                                </form>
+                                            </td>
+                                            <td class="price" data-title="Price">
+                                                <h4 class="text-brand">£ {{item.subtotal}} </h4>
+                                            </td>
+                                            <td class="action text-center" data-title="Remove"><a href="{% url 'cart:remove_from_cart' item.id %}" class="text-body"><i class="fi-rs-trash"></i></a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p>Your cart is empty.</p>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="border p-md-4 cart-totals ml-30">
+                        <div class="table-responsive">
+                            <table class="table no-border">
+                                <tbody>
+                                    <tr>
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Subtotal</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h4 class="text-brand text-end">£{{ total }}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" colspan="2">
+                                            <div class="divider-2 mt-10 mb-10"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Shipping</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h5 class="text-heading text-end">Free</h4></td> </tr> <tr>
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Estimate for</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h5 class="text-heading text-end">United Kingdom</h4></td> </tr> <tr>
+                                        <td scope="col" colspan="2">
+                                            <div class="divider-2 mt-10 mb-10"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Total</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h4 class="text-brand text-end">£{{ total }}</h4>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="payment ml-30">
+                            <h4 class="mb-30">Payment</h4>
+                            <div class="payment_option">
+                                <!-- <div class="custome-radio">
+                                    <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" checked="">
+                                    <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Direct Bank Transfer</label>
+                                </div> -->
+                                <div class="custome-radio">
+                                    <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4" checked="">
+                                    <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>
+                                </div>
+                            </div>
+                            <div class="payment-logo d-flex">
+                                <img class="mr-15" src="assets/imgs/theme/icons/payment-paypal.svg" alt="">
+                                <img class="mr-15" src="assets/imgs/theme/icons/payment-visa.svg" alt="">
+                                <img class="mr-15" src="assets/imgs/theme/icons/payment-master.svg" alt="">
+                                <img src="assets/imgs/theme/icons/payment-zapper.svg" alt="">
+                            </div>
+                        </div>
+                        <form method="post" action="{% url 'cart:confirm_order' %}">
+                            {% csrf_token %}
+                            <button type="submit">Confirm Order</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

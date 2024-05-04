@@ -1,0 +1,82 @@
+{% extends 'home/index.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main">
+        <section class="product-tabs section-padding position-relative">
+            <div class="container">
+                <div class="section-title style-2 wow animate__animated animate__fadeIn">
+                    <h3>Popular Products</h3>
+                </div>
+                <!--End nav-tabs-->
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+                        <div class="row product-grid-4">
+                            <!--end product card-->
+                            {% for prod in products %}
+                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                                <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
+                                    <div class="product-img-action-wrap">
+                                        <div class="product-img product-img-zoom">
+                                            <a href="shop-product-right.html">
+                                                {% comment %} <img class="default-img" src="{% static 'assets/imgs/shop/product-solar-1-1.png' %}" alt="" /> {% endcomment %}
+                                                <img class="default-img" src="{{ prod.image.url }}" alt="" />
+                                                <img class="hover-img" src="{% static 'assets/imgs/shop/product-solar-1-2.png' %}" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content-wrap">
+                                        <h2><a href="shop-product-right.html">{{ prod.name }}</a></h2>
+                                        <div class="product-card-bottom">
+                                            <div class="product-price">
+                                                <span>{{ prod.price }}</span>
+                                            </div>
+                                            <div class="add-cart">
+                                                <a class="add" href="usercart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!--End product-grid-4-->
+                    </div>
+                    <!--En tab one-->
+                    <div class="tab-pane fade" id="tab-four" role="tabpanel" aria-labelledby="tab-four">
+                        <div class="row product-grid-4">
+                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                                <div class="product-cart-wrap mb-30">
+                                    <div class="product-img-action-wrap">
+                                        <div class="product-img product-img-zoom">
+                                            <a href="shop-product-right.html">
+                                                <img class="default-img" src="{% static 'assets/imgs/shop/product-battery-1.png' %}" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content-wrap">
+                                        <h2><a href="shop-product-right.html">Solar Battery</a></h2>
+                                        <div class="product-rate-cover">
+                                            <div class="product-rate d-inline-block">
+                                                <div class="product-rating" style="width: 90%"></div>
+                                            </div>
+                                            <span class="font-small ml-5 text-muted"> (4.0)</span>
+                                        </div>
+                                        <div class="product-card-bottom">
+                                            <div class="product-price">
+                                                <span>£28.85</span>
+                                            </div>
+                                            <div class="add-cart">
+                                                <a class="add" href="usercart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

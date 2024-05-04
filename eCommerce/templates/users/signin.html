@@ -1,0 +1,48 @@
+{% extends 'home/index.html' %}
+
+{%load static%}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block title %}Sign In Page{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="form login">
+      <header>Login</header>
+      <form method="POST" action="{% url 'users:login' %}">
+        {% csrf_token %}
+
+        {% comment %} Displaying any authentication errors {% endcomment %}
+        {% if form.non_field_errors %}
+            <div class="errors">
+              {% for error in form.non_field_errors %}
+                <p class="error">{{ error }}</p>
+              {% endfor %}
+            </div>
+        {% endif %}
+
+        {{ form.username }}
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {{ form.password }}
+        {% if form.password.errors %}
+            {% for error in form.password.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <input type="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span>Don't have an account?
+         <a href="{% url 'users:register' %}">Signup</a>
+        </span>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
