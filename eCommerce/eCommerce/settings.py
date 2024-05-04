@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': os.environ.get('DATABASE_NAME', 'django_ecomm'), # database name inside the postgres container
         'USER': os.environ.get('DATABASE_USER', 'demo2'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'demo'),
-        'HOST': os.environ.get('DATABASE_HOST', 'ecomm-custom-postgres'), # container name that is running the postgres database
+        'HOST': os.environ.get('DATABASE_HOST', 'my-postgres'), # container name that is running the postgres database
         'PORT': os.environ.get('DATABASE_PORT', '5432'),
     }
 }
