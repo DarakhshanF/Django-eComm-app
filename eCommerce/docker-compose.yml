@@ -15,16 +15,14 @@ services:
         [
           "CMD-SHELL",
           "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}"
-        ] # Check if Postgres is ready
+        ] # Check if Postgres is ready 
       interval: 5s # Check every 10 seconds
       timeout: 5s # Wait for 5 seconds for response
       retries: 5 # Try 5 times before considering unhealthy
 
   web:
-    image: darakhshanf/django-ecomm-cwk-app-ma
-    platform: linux/arm64
+    image: darakhshanf/django-ecomm-cwk-app
     container_name: django
-    platform: linux/amd64
     ports:
       - '8000:8000'
     env_file:
