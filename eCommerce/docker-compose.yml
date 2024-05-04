@@ -2,23 +2,28 @@ version: '3.8'
 
 services:
   my-postgres:
-    image: darakhshanf/postgres-web
+    image: postgres:15
     container_name: my-postgres
     environment:
-     - POSTGRES_DB=${DATABASE_NAME}
-     - POSTGRES_USER=${DATABASE_USER}
-     - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:
-    - '5432:5432'
+      - '5432:5432'
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}"]  # Check if Postgres is ready
-      interval: 5s  # Check every 10 seconds
-      timeout: 5s  # Wait for 5 seconds for response
-      retries: 5     # Try 5 times before considering unhealthy
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}"
+        ] # Check if Postgres is ready
+      interval: 5s # Check every 10 seconds
+      timeout: 5s # Wait for 5 seconds for response
+      retries: 5 # Try 5 times before considering unhealthy
 
   web:
     image: darakhshanf/django-ecomm-cwk-app
     container_name: django
+    platform: linux/amd64
     ports:
       - '8000:8000'
     env_file:
@@ -27,7 +32,11 @@ services:
       - .:/app
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     healthcheck:
-      test: ["CMD-SHELL", "python manage.py check --database=default"]  # Custom command for Django health
+      test:
+        [
+          "CMD-SHELL",
+          "python manage.py check --database=default"
+        ] # Custom command for Django health
       interval: 10s
       timeout: 5s
       retries: 5
@@ -41,4 +50,3 @@ services:
     depends_on:
       my-postgres:
         condition: service_healthy
-
