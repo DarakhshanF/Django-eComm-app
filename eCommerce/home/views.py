@@ -9,7 +9,6 @@ def index(request):
 def about(request):
     return render(request, 'home/about-us.html')
 
-
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
