@@ -55,7 +55,7 @@
                                 </div>
                                 {% if user.is_authenticated %}
                                     <div class="header-action-icon-2">
-                                        <a class="mini-cart-icon" href="usercart.html">
+                                        <a class="mini-cart-icon" href="{% url 'cart:cart_detail' %}">
                                             <img alt="SurreySolars" src="{% static 'assets/imgs/theme/icons/icon-cart.svg' %}" />
                                         </a>
                                         <a href="{% url 'cart:cart_detail' %}"><span class="lable">Cart</span></a>
