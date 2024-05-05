@@ -1,5 +1,6 @@
 {% extends 'home/index.html' %}
-{% load static %}   
+{% load static %}
+{% block content %}
     <main class="main pages">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -15,7 +16,7 @@
                     <div class="col-xl-10 col-lg-12 m-auto">
                         <section class="row align-items-center mb-50">
                             <div class="col-lg-6">
-                                <img src="assets/imgs/page/aboutus2.jpg" alt="" class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
+                                <img src="{% static 'assets/imgs/page/aboutus2.jpg' %}" alt="" class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
                             </div>
                             <div class="col-lg-6">
                                 <div class="pl-25">
@@ -25,10 +26,10 @@
                                     <div class="carausel-3-columns-cover position-relative">
                                         <div id="carausel-3-columns-arrows"></div>
                                         <div class="carausel-3-columns" id="carausel-3-columns">
-                                            <img src="assets/imgs/page/aboutus-1.jpg" alt="" />
-                                            <img src="assets/imgs/page/aboutus-5.jpg" alt="" />
-                                            <img src="assets/imgs/page/aboutus3.jpg" alt="" />
-                                            <img src="assets/imgs/page/aboutus-4.jpg" alt="" />
+                                            <img src="{% static 'assets/imgs/page/aboutus-1.jpg' %}" alt="" />
+                                            <img src="{% static 'assets/imgs/page/aboutus-5.jpg' %}" alt="" />
+                                            <img src="{% static 'assets/imgs/page/aboutus3.jpg' %}" alt="" />
+                                            <img src="{% static 'assets/imgs/page/aboutus-4.jpg' %}" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +40,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-1.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-1.svg' %}" alt="" />
                                         <h4>Best Prices & Offers</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -47,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-2.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-2.svg' %}" alt="" />
                                         <h4>Wide Assortment</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -55,7 +56,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-3.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-3.svg' %}" alt="" />
                                         <h4>Free Delivery</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -63,7 +64,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-4.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-4.svg' %}" alt="" />
                                         <h4>Easy Returns</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -71,7 +72,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-5.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-5.svg' %}" alt="" />
                                         <h4>100% Satisfaction</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -79,7 +80,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-24">
                                     <div class="featured-card">
-                                        <img src="assets/imgs/theme/icons/icon-6.svg" alt="" />
+                                        <img src="{% static 'assets/imgs/theme/icons/icon-6.svg' %}" alt="" />
                                         <h4>Great Daily Deal</h4>
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                                         <a href="#">Read more</a>
@@ -90,7 +91,7 @@
                         <section class="row align-items-center mb-50">
                             <div class="row mb-50 align-items-center">
                                 <div class="col-lg-7 pr-30">
-                                    <img src="assets/imgs/page/aboutus-5.jpg" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
+                                    <img src="{% static 'assets/imgs/page/aboutus-5.jpg' %}" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
                                 </div>
                                 <div class="col-lg-5">
                                     <h4 class="mb-20 text-muted">Our performance</h4>
