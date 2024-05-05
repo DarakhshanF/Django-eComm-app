@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.html"><img src="{% static 'assets/imgs/theme/surrey-logo.png' %}" alt="logo" /></a>
+                        <a href="{%url 'home:home' %}"><img src="{% static 'assets/imgs/theme/surrey-logo.png' %}" alt="logo" /></a>
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
@@ -76,7 +76,7 @@
                                     <a href="useraccount.html">
                                         <img class="svgInject" alt="SurreySolars" src="{% static 'assets/imgs/theme/icons/icon-user.svg' %}" />
                                     </a>
-                                    <a href="useraccount.html"><span class="lable ml-0">Account</span></a>
+                                    <a href="#"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             {% if not user.is_authenticated %}
