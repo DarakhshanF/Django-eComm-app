@@ -20,7 +20,7 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
                                                 {% comment %} <img class="default-img" src="{% static 'assets/imgs/shop/product-solar-1-1.png' %}" alt="" /> {% endcomment %}
-                                                <img class="default-img" src="{% static '{{ prod.image.url }}' %}" alt="" />
+                                                <img class="default-img" src="{{ prod.image.url }}" alt="" />
                                                 <img class="hover-img" src="{% static 'assets/imgs/shop/product-solar-1-2.png' %}" alt="" />
                                             </a>
                                         </div>
