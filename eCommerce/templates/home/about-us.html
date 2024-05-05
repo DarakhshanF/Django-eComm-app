@@ -1,7 +1,5 @@
 {% extends 'home/index.html' %}
-{% load static %}
-
-{% block content %}
+{% load static %}   
     <main class="main pages">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -17,49 +15,103 @@
                     <div class="col-xl-10 col-lg-12 m-auto">
                         <section class="row align-items-center mb-50">
                             <div class="col-lg-6">
-                                <img src="{% static 'assets/imgs/page/aboutus2.jpg' %}" alt="" class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
+                                <img src="assets/imgs/page/aboutus2.jpg" alt="" class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
                             </div>
                             <div class="col-lg-6">
                                 <div class="pl-25">
                                     <h2 class="mb-30">Welcome to SurreySolars</h2>
-                                    <p class="mb-25">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.</p>
-                                    <p class="mb-50">Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et Ut placerat legendos interpre.Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit amet orci eget. Quis commodo odio aenean sed adipiscing. Turpis massa tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit amet. Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.</p>
+                                    <p class="mb-25">Surrey Solars, headquartered in the vibrant town of Guildford and closely associated with the prestigious University of Surrey, stands at the forefront of sustainable energy solutions. Our mission is unequivocal: to pioneer the path towards achieving net zero emissions in Guildford by 2050. With a deep-rooted commitment to environmental stewardship, we specialize in providing cutting-edge solar technology and products tailored to meet the evolving needs of residential, commercial, and industrial clients alike. At Surrey Solars, we recognize that the transition to renewable energy sources is not just a necessity but a moral imperative, and we take pride in offering innovative, reliable, and cost-effective solutions to propel our community towards a brighter, cleaner future.</p>
+                                    <p class="mb-50">Embedded within our ethos is a dedication to excellence, sustainability, and community engagement. By harnessing the power of solar energy, we empower individuals and businesses to take control of their energy consumption while significantly reducing their carbon footprint. Collaborating closely with local authorities, businesses, and homeowners, we strive to foster a culture of environmental responsibility and innovation. Through meticulous research, development, and implementation, we aim to redefine the landscape of energy production and consumption, one solar panel at a time. At Surrey Solars, we envision a world where sustainability is not just a choice but a way of life, and we are committed to leading the charge towards a cleaner, greener tomorrow.</p>
                                     <div class="carausel-3-columns-cover position-relative">
                                         <div id="carausel-3-columns-arrows"></div>
                                         <div class="carausel-3-columns" id="carausel-3-columns">
-                                            <img src="{% static 'assets/imgs/page/aboutus-1.jpg' %}" alt="" />
-                                            <img src="{% static 'assets/imgs/page/aboutus-5.jpg' %}" alt="" />
-                                            <img src="{% static 'assets/imgs/page/aboutus3.jpg' %}" alt="" />
-                                            <img src="{% static 'assets/imgs/page/aboutus-4.jpg' %}" alt="" />
+                                            <img src="assets/imgs/page/aboutus-1.jpg" alt="" />
+                                            <img src="assets/imgs/page/aboutus-5.jpg" alt="" />
+                                            <img src="assets/imgs/page/aboutus3.jpg" alt="" />
+                                            <img src="assets/imgs/page/aboutus-4.jpg" alt="" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
+                        <!-- <section class="text-center mb-50">
+                            <h2 class="title style-3 mb-40">What We Provide?</h2>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-1.svg" alt="" />
+                                        <h4>Best Prices & Offers</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-2.svg" alt="" />
+                                        <h4>Wide Assortment</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-3.svg" alt="" />
+                                        <h4>Free Delivery</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-4.svg" alt="" />
+                                        <h4>Easy Returns</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-5.svg" alt="" />
+                                        <h4>100% Satisfaction</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-24">
+                                    <div class="featured-card">
+                                        <img src="assets/imgs/theme/icons/icon-6.svg" alt="" />
+                                        <h4>Great Daily Deal</h4>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <a href="#">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section> -->
                         <section class="row align-items-center mb-50">
                             <div class="row mb-50 align-items-center">
                                 <div class="col-lg-7 pr-30">
-                                    <img src="{% static 'assets/imgs/page/aboutus-5.jpg' %}" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
+                                    <img src="assets/imgs/page/aboutus-5.jpg" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
                                 </div>
                                 <div class="col-lg-5">
                                     <h4 class="mb-20 text-muted">Our performance</h4>
                                     <h1 class="heading-1 mb-40">Your Platform to finding Eco-friendly Solutions</h1>
-                                    <p class="mb-30">Ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</p>
-                                    <p>Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia</p>
+                                    <p class="mb-30">Our platform serves as a gateway to discovering a myriad of eco-friendly solutions tailored to meet the unique needs of individuals, businesses, and communities alike. With a relentless focus on sustainability, innovation, and accessibility, we strive to connect users with a diverse array of environmentally conscious products, services, and initiatives. Whether you're seeking renewable energy solutions, biodegradable alternatives, or sustainable lifestyle practices, our platform serves as your compass in navigating the ever-expanding landscape of eco-conscious options.</p>
+                                    <p>Driven by a passion for environmental stewardship, we curate a comprehensive selection of eco-friendly solutions sourced from reputable providers and manufacturers committed to reducing their ecological footprint. From energy-efficient appliances to zero-waste household products, we empower users to make informed choices that align with their values and contribute to a healthier planet. Through informative content, interactive tools, and community engagement, we foster a culture of sustainability where every individual has the power to effect positive change. Join us on our journey towards a greener future, where sustainability isn't just a buzzword but a way of life.</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 pr-30 mb-md-5 mb-lg-0 mb-sm-5">
                                     <h3 class="mb-30">Who we are</h3>
-                                    <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                    <p>We are an eco-friendly solutions platform committed to connecting individuals and businesses with sustainable products and practices. Our mission is to empower users to make informed choices that promote a greener future for generations to come.</p>
                                 </div>
                                 <div class="col-lg-4 pr-30 mb-md-5 mb-lg-0 mb-sm-5">
                                     <h3 class="mb-30">Our history</h3>
-                                    <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                    <p>Our journey began with a vision to revolutionize the way individuals and businesses interact with the environment. Founded on principles of sustainability and innovation, we've evolved into a leading platform for eco-friendly solutions. With each step forward, we've remained steadfast in our commitment to catalyzing positive change and shaping a more sustainable tomorrow.</p>
                                 </div>
                                 <div class="col-lg-4">
                                     <h3 class="mb-30">Our mission</h3>
-                                    <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                    <p>Our mission is clear: to be the catalyst for widespread adoption of eco-friendly solutions, empowering individuals and businesses to make sustainable choices that protect our planet for future generations. Through education, advocacy, and accessibility, we strive to drive meaningful progress towards a greener, more sustainable world.
+                                    </p>
                                 </div>
                             </div>
                         </section>
