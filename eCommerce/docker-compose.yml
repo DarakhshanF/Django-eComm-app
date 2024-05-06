@@ -22,14 +22,12 @@ services:
 
   web:
     image: darakhshanf/django-ecomm-cwk-app-ma
-    platform: linux/arm64
+    platform: linux/amd64
     container_name: django
     ports:
       - '8000:8000'
     env_file:
       - ./.env
-    volumes:
-      - .:/app
     command: >
       sh -c "
         python manage.py makemigrations &&
