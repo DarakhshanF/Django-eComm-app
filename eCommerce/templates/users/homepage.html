@@ -32,9 +32,15 @@
                                                 <span>{{ prod.price }}</span><br>
                                                 <span>Product ID: {{ prod.id }}</span>
                                             </div>
+                                            {% if not user.is_authenticated %}
+                                            <div class="add-cart">
+                                                <a class="add" href="{% url 'users:login' %}"><i class="fi-rs-shopping-cart mr-5"></i>Please Login to Add to Cart </a>
+                                            </div>
+                                            {% else %}
                                             <div class="add-cart">
                                                 <a class="add" href="{% url 'cart:add_to_cart' prod.id %}"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
